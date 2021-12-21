@@ -42,11 +42,6 @@
         quantity: 0,
       }
     },
-    watch: {
-      quantity() {
-        console.log(this.quantity <= 0 || !Number.isInteger(this.quantity));
-      }
-    },
     methods: {
       buyStock() {
         const order = {
@@ -54,7 +49,7 @@
           stockPrice: this.stock.price,
           quantity: this.quantity, 
         };
-        console.log(order);
+        this.$store.dispatch('buyStock', order);
         this.quantity = 0;
       }
     }
