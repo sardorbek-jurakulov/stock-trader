@@ -1,6 +1,6 @@
 <template>
   <div class="col-sm-6 col-md-4">
-    <div class="panel panel-success">
+    <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">
           {{ stock.name }}
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+  import {mapActions} from 'vuex';
   export default {
     props: {
       stock: {
@@ -43,12 +44,16 @@
       }
     },
     methods: {
+      ...mapActions([
+        'sellStock'
+      ]),
       sellStock() {
         const order = {
           stockId: this.stock.id,
           stockPrice: this.stock.price,
           quantity: this.quantity,
         };
+        this.sellStock();
       }
     }
   }
