@@ -1,5 +1,7 @@
 <template>
-  <h1>The Home Component</h1>
+  <div>
+    <h1>Trade or View your Portfolio</h1>
+  </div>
 </template>
 
 <script></script>
